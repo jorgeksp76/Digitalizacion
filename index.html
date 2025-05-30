@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Usuarios</title>
+</head>
+<body>
+  <h1>Registrar Usuario</h1>
+  <form id="userForm">
+    <input type="text" id="name" placeholder="Nombre" required />
+    <input type="email" id="email" placeholder="Correo electrónico" required />
+    <button type="submit">Guardar</button>
+  </form>
+
+  <h2>Usuarios Registrados</h2>
+  <ul id="userList"></ul>
+
+  <script>
+    const form = document.getElementById("userForm");
+    const userList = document.getElementById("userList");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+
+      await fetch("/api/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email })
+      });
+
+      loadUsers();
+      form.reset();
+    });
+
+    async function loadUsers() {
+      const res = await fetch("/api/users");
+      const users = await res.json();
+      userList.innerHTML = "";
+      users.forEach(user => {
+        const li = document.createElement("li");
+        li.textContent = `${user.name} - ${user.email}`;
+        userList.appendChild(li);
+      });
+    }
+
+    loadUsers();
+  </script>
+  <script type="module" src="firebase.js"></script>
+</body>
+</html>
