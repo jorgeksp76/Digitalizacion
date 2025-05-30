@@ -7,15 +7,23 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
 
 // Configuración Firebase
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  databaseURL: "https://digitalizacion-966d1-default-rtdb.europe-west1.firebasedatabase.app/",
-  apiKey: "AIzaSyA_8kLupGg5pR8qEoMY8c9aNgHeKqtxCF8",
-  authDomain: "digitalizacionproyecto-a6e81.firebaseapp.com",
-  projectId: "digitalizacionproyecto-a6e81",
-  storageBucket: "digitalizacionproyecto-a6e81.firebasestorage.app",
-  messagingSenderId: "591813058138",
-  appId: "1:591813058138:web:a385ac493a8a0dab92c263"
+  apiKey: "AIzaSyDpuz0dKJBPRDgKFVsE1hybCiR7J9BlCuA",
+  authDomain: "dddsd-bc614.firebaseapp.com",
+  projectId: "dddsd-bc614",
+  storageBucket: "dddsd-bc614.firebasestorage.app",
+  messagingSenderId: "232008592233",
+  appId: "1:232008592233:web:0aed262ed6288b12836bf8"
 };
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
